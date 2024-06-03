@@ -1,37 +1,15 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { Stack } from 'expo-router';
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+export default function Layout() {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
-          ),
-        }}
-      />
-    </Tabs>
+    <Stack>
+      <Stack.Screen name="login" options={{ headerShown: false }} />
+      <Stack.Screen name="welcome" options={{ headerTitle: 'Bienvenido' }} />
+      <Stack.Screen name="tasklist" options={{ headerTitle: 'Lista de tareas' }} />
+      <Stack.Screen name="addtask" options={{ headerTitle: 'Agregar tarea' }} />
+      <Stack.Screen name="edittask" options={{ headerTitle: 'Editar tarea' }} />
+      <Stack.Screen name="viewtask" options={{ headerTitle: 'Ver tarea' }} />
+      <Stack.Screen name="settings" options={{ headerTitle: 'Configuraciones' }} />
+    </Stack>
   );
 }

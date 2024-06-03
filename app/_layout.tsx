@@ -34,4 +34,8 @@ export default function RootLayout() {
       </Stack>
     </ThemeProvider>
   );
+
 }
+
+
+//Corregir las rutas del layout qe estan en el app/tabs/layout
